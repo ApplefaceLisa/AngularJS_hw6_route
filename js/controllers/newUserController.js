@@ -1,9 +1,12 @@
-angular.module("userMngrApp").controller("newUserController", function($scope) {
-  $scope.fName = "";
-  $scope.lName = "";
-  $scope.title = "";
-  $scope.gender = "";
-  $scope.age = "";
+app.controller("newUserController", ["$scope", "userMngService", function($scope, userMngService) {
+  $scope.user = {
+    id : "",
+    fName : "",
+    lName : "",
+    title : "",
+    gender : "",
+    age : ""
+  };
   $scope.passw1 = "";
   $scope.passw2 = "";
   $scope.error = false;
@@ -11,8 +14,8 @@ angular.module("userMngrApp").controller("newUserController", function($scope) {
 
   $scope.$watch('passw1',function() {$scope.test();});
   $scope.$watch('passw2',function() {$scope.test();});
-  $scope.$watch('fName', function() {$scope.test();});
-  $scope.$watch('lName', function() {$scope.test();});
+  $scope.$watch('user.fName', function() {$scope.test();});
+  $scope.$watch('user.lName', function() {$scope.test();});
 
   $scope.test = function() {
     if ($scope.passw1 && $scope.passw2 && $scope.passw1 !== $scope.passw2) {
@@ -21,9 +24,15 @@ angular.module("userMngrApp").controller("newUserController", function($scope) {
       $scope.error = false;
     }
     $scope.incomplete = true;
-    if ($scope.fName && $scope.lName &&
+    if ($scope.user.fName && $scope.user.lName &&
         $scope.passw1 && $scope.passw2) {
         $scope.incomplete = false;
     }
   };
-})
+
+  $scope.addUser = function($event, usrObj) {
+    $event.preventDefault();
+    userMngService.createUser(usrObj);
+    location.href = "#/!";
+  }
+}]);

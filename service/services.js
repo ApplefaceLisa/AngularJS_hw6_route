@@ -64,4 +64,49 @@ angular.module("customServices", [])
             pages: pages
         };
     }
+})
+.factory("userMngService", function() {
+    var service = {};
+    var users = [
+        {id:1, fName:'Hege',  lName:"Pege", title:"Software Engineer", gender:"male", age:22},
+        {id:2, fName:'Kim',   lName:"Pim", title:"Principle", gender:"female", age:45},
+        {id:3, fName:'Sal',   lName:"Smith", title:"Project Manager", gender:"male", age:35 },
+        {id:4, fName:'Jack',  lName:"Jones", title:"Senior Engineer", gender:"male", age:32 },
+        {id:5, fName:'John',  lName:"Doe", title:"ME", gender:"male", age:30 },
+        {id:6, fName:'Peter', lName:"Pan", title:"blacksmith", gender:"male", age:19 }];
+
+    var userlist = users;
+    var user_id = users.length;
+
+    service.createUser = function(usrObj) {
+        usrObj.id = user_id++;
+        users.push(usrObj);
+    }
+
+    service.updateUser = function(usrObj) {
+        var id = usrObj.id;
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].id === id) {
+                users[i] = usrObj;
+                break;
+            }
+        }
+    }
+
+    service.deleteUser = function(usrId) {
+        var index = users.length;
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].id === usrId) {
+                index = i;
+                break;
+            }
+        }
+        users.splice(i, 1);
+    }
+
+    service.getUserlist = function() {
+        return userlist;
+    }
+
+    return service;
 });

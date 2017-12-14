@@ -1,4 +1,4 @@
-var app = angular.module("userMngrApp", ["ngRoute"]);
+var app = angular.module("userMngrApp", ["ngRoute", "customServices"]);
 
 app.config(function($routeProvider) {
     $routeProvider
