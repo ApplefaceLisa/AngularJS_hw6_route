@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="userMngr">
+<html ng-app="userMngrApp">
 <head>
     <title>AngularJS hw6 user management</title>
     <link rel="stylesheet" href="w3.css">
@@ -8,10 +8,12 @@
     <script type="text/javascript" src="./service/services.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body ng-controller="userMngrCtrl">
     <h1>AngularJS - User Management Tool</h1>
     <div ng-view></div>
     <script type="text/javascript" src="./js/script.js"></script>
+    <script type="text/javascript" src="./js/controllers/listUserController.js"></script>
+    <script type="text/javascript" src="./js/controllers/newUserController.js"></script>
     <script type="text/javascript" src="./js/controllers/editUserController.js"></script>
 </body>
 </html>

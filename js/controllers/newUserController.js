@@ -1,6 +1,4 @@
-angular.module("userMngrApp").controller("editUserController", ["$scope", "$routeParams", function($scope, $routeParams) {
-  $scope.id = $routeParams.id;
-
+angular.module("userMngrApp").controller("newUserController", function($scope) {
   $scope.fName = "";
   $scope.lName = "";
   $scope.title = "";
@@ -28,4 +26,4 @@ angular.module("userMngrApp").controller("editUserController", ["$scope", "$rout
         $scope.incomplete = false;
     }
   };
-}]);
+})

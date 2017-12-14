@@ -1,12 +1,14 @@
-var app = angular.module("userMngr", ["ngRoute"]);
+var app = angular.module("userMngrApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl: "views/list.html"
+        templateUrl: "views/list.html",
+        controller: "listUserController"
     })
     .when("/new", {
-        templateUrl: "views/new.html"
+        templateUrl: "views/new.html",
+        controller: "newUserController"
     })
     .when("/edit/:id", {
         templateUrl: "views/edit.html",
@@ -14,3 +16,5 @@ app.config(function($routeProvider) {
     })
     .otherwise({redirectTo: "/"})
 });
+
+app.controller("userMngrCtrl", function($scope) {});
