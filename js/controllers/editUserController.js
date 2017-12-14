@@ -1,16 +1,15 @@
-angular.module("userMngrApp").controller("editUserController", ["$scope", "$routeParams", function($scope, $routeParams) {
-  $scope.id = $routeParams.id;
+app.controller("editUserController", ["$scope", "$routeParams", "userMngService", function($scope, $routeParams, userMngService) {
+  var userId = $routeParams.id;
+  $scope.id = userId;
 
-  $scope.fName = "";
-  $scope.lName = "";
-  $scope.title = "";
-  $scope.gender = "";
-  $scope.age = "";
+  var user = userMngService.getUserById(userId);
+  console.log(user);
+
   $scope.passw1 = "";
   $scope.passw2 = "";
   $scope.error = false;
-  $scope.incomplete = true;
-
+  $scope.incomplete = false;
+/*
   $scope.$watch('passw1',function() {$scope.test();});
   $scope.$watch('passw2',function() {$scope.test();});
   $scope.$watch('fName', function() {$scope.test();});
@@ -23,9 +22,15 @@ angular.module("userMngrApp").controller("editUserController", ["$scope", "$rout
       $scope.error = false;
     }
     $scope.incomplete = true;
-    if ($scope.fName && $scope.lName &&
+    if ($scope.user.fName && $scope.user.lName &&
         $scope.passw1 && $scope.passw2) {
         $scope.incomplete = false;
     }
   };
+*/
+  $scope.editUser = function($event) {
+    $event.preventDefault();
+    userMngService.updateUser($scope.user);
+    location.href = "#/!";
+  }
 }]);

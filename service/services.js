@@ -108,5 +108,16 @@ angular.module("customServices", [])
         return userlist;
     }
 
+    service.getUserById = function(usrId) {
+        console.log("getuserbyid : "+usrId);
+        /*
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].id === usrId) {
+                return users[i];
+            }
+        }*/
+        return {id:1, fName:'Hege',  lName:"Pege", title:"Software Engineer", gender:"male", age:22};
+    }
+
     return service;
 });
