@@ -73,7 +73,19 @@ angular.module("customServices", [])
         {id:3, fName:'Sal',   lName:"Smith", title:"Project Manager", gender:"male", age:35 },
         {id:4, fName:'Jack',  lName:"Jones", title:"Senior Engineer", gender:"male", age:32 },
         {id:5, fName:'John',  lName:"Doe", title:"ME", gender:"male", age:30 },
-        {id:6, fName:'Peter', lName:"Pan", title:"blacksmith", gender:"male", age:19 }];
+        {id:6, fName:'Peter', lName:"Pan", title:"blacksmith", gender:"male", age:19 },
+        {id:7, fName:'Hege',  lName:"Pege", title:"Software Engineer", gender:"male", age:22},
+        {id:8, fName:'Kim',   lName:"Pim", title:"Principle", gender:"female", age:45},
+        {id:9, fName:'Sal',   lName:"Smith", title:"Project Manager", gender:"male", age:35 },
+        {id:10, fName:'Jack',  lName:"Jones", title:"Senior Engineer", gender:"male", age:32 },
+        {id:11, fName:'John',  lName:"Doe", title:"ME", gender:"male", age:30 },
+        {id:12, fName:'Peter', lName:"Pan", title:"blacksmith", gender:"male", age:19 },
+        {id:13, fName:'Hege',  lName:"Pege", title:"Software Engineer", gender:"male", age:22},
+        {id:14, fName:'Kim',   lName:"Pim", title:"Principle", gender:"female", age:45},
+        {id:15, fName:'Sal',   lName:"Smith", title:"Project Manager", gender:"male", age:35 },
+        {id:16, fName:'Jack',  lName:"Jones", title:"Senior Engineer", gender:"male", age:32 },
+        {id:17, fName:'John',  lName:"Doe", title:"ME", gender:"male", age:30 },
+        {id:18, fName:'Peter', lName:"Pan", title:"blacksmith", gender:"male", age:19 }];
 
     var userlist = users;
     var user_id = users.length + 1;
@@ -101,7 +113,7 @@ angular.module("customServices", [])
                 break;
             }
         }
-        users.splice(i, 1);
+        users.splice(index, 1);
     }
 
     service.getUserlist = function() {

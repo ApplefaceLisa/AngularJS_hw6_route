@@ -15,3 +15,25 @@ This homework is to enhance this app in the following way:
 pre-defined, such as 20).
 
 Note: You should create your own code files for this.
+
+## Homework 7
+This homework is to enhance this app in the following way:
+
+- To split the page into 3 separate 'pages': User List, New User, and Edit User.
+- Each page will be actually a `<div>` and will be displayed as part of index.html.
+- It is controlled by AngularJS via `ng-view`.
+
+Two things may be needed to complete this homework:
+1. Need to learn how to use `ng-view`;
+2. May need to run this within a web server (until you turn off the web
+security in a web browser).
+
+## Homework 9
+This homework is to enhance this app in the following way:
+To create an angularJS service that encapsulates the USERS array and all the other shared functions. The instance of this service will be shared among all the controllers.
+
+Two things may be considered to complete this homework:
+1. It's up to you to choose a form of the service: Factory, Service and Provider, and leverage as
+much of its functionality as possible.
+2. It's up to you to decide which functions will be in this service. However, there should be no
+global objects (data or functions) after this homework.

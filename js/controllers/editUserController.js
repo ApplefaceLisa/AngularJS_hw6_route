@@ -2,6 +2,7 @@ app.controller("editUserController", ["$scope", "$routeParams", "$location", "us
   var userId = $routeParams.id;
   $scope.id = userId;
   $scope.user = userMngService.getUserById(Number(userId));
+  console.log($scope.user);
 
   /*
   console.log("host: "+ $location.host());

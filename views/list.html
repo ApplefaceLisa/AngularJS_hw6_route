@@ -6,7 +6,7 @@
     <hr/>
     <div>
       <button ng-click="sortBy(null)">Set to unsorted</button>
-      <label>items per page : <input type="number" ng-model="pagesize"></label>
+      <label>items per page : <input type="number" ng-model="pageSize"></label>
       <span>total users : {{users.length}}</span>
     </div>
     <table class="w3-table w3-bordered w3-striped">
@@ -35,7 +35,7 @@
             <span class="sortorder" ng-show="propertyName === 'age'" ng-class="{reverse: reverse}"></span>
         </th>
       </tr>
-      <tr ng-repeat="user in users | orderBy:propertyName:reverse | filter:searchKey">
+      <tr ng-repeat="user in userlist | orderBy:propertyName:reverse | filter:searchKey">
         <td>{{user.id}}</td>
         <td>
           <button class="w3-btn w3-ripple" ng-click="editUser($event, user.id)">&#9998; Edit</button>
@@ -52,7 +52,7 @@
     </table>
     <br>
     <!-- pager -->
-    <!--ul ng-if="pager.pages.length" class="pagination">
+    <ul ng-if="pager.pages.length" class="pagination">
         <li ng-class="{disabled:pager.currentPage === 1}">
             <a ng-click="setPage(1)">First</a>
         </li>
@@ -68,7 +68,7 @@
         <li ng-class="{disabled:pager.currentPage === pager.totalPages}">
             <a ng-click="setPage(pager.totalPages)">Last</a>
         </li>
-    </ul-->
+    </ul>
     <br>
     <button class="w3-btn w3-green w3-ripple" ng-click="createUser($event)">&#9998; Create New User</button>
 </div>
