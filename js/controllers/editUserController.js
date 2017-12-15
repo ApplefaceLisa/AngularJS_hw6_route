@@ -1,9 +1,13 @@
-app.controller("editUserController", ["$scope", "$routeParams", "userMngService", function($scope, $routeParams, userMngService) {
+app.controller("editUserController", ["$scope", "$routeParams", "$location", "userMngService", function($scope, $routeParams, $location, userMngService) {
   var userId = $routeParams.id;
   $scope.id = userId;
+  $scope.user = userMngService.getUserById(Number(userId));
 
-  $scope.user = userMngService.getUserById(userId);
-  console.log($scope.user);
+  /*
+  console.log("host: "+ $location.host());
+  console.log("port: " + $location.port());
+  console.log("url: " + $location.absUrl());
+  */
 
   $scope.passw1 = "";
   $scope.passw2 = "";
@@ -31,6 +35,11 @@ app.controller("editUserController", ["$scope", "$routeParams", "userMngService"
   $scope.editUser = function($event) {
     $event.preventDefault();
     userMngService.updateUser($scope.user);
-    location.href = "#/!";
+    $location.path("/");
+  }
+
+  $scope.cancel = function($event) {
+    $event.preventDefault();
+    $location.path("/");
   }
 }]);

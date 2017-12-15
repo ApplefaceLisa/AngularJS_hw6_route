@@ -76,7 +76,7 @@ angular.module("customServices", [])
         {id:6, fName:'Peter', lName:"Pan", title:"blacksmith", gender:"male", age:19 }];
 
     var userlist = users;
-    var user_id = users.length;
+    var user_id = users.length + 1;
 
     service.createUser = function(usrObj) {
         usrObj.id = user_id++;
@@ -109,14 +109,11 @@ angular.module("customServices", [])
     }
 
     service.getUserById = function(usrId) {
-        console.log("getuserbyid : "+usrId);
-        /*
         for (var i = 0; i < users.length; i++) {
             if (users[i].id === usrId) {
                 return users[i];
             }
-        }*/
-        return {id:1, fName:'Hege',  lName:"Pege", title:"Software Engineer", gender:"male", age:22};
+        }
     }
 
     return service;

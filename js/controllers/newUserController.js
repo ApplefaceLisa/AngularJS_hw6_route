@@ -1,4 +1,4 @@
-app.controller("newUserController", ["$scope", "userMngService", function($scope, userMngService) {
+app.controller("newUserController", ["$scope", "$location", "userMngService", function($scope, $location, userMngService) {
   $scope.user = {
     id : "",
     fName : "",
@@ -11,6 +11,12 @@ app.controller("newUserController", ["$scope", "userMngService", function($scope
   $scope.passw2 = "";
   $scope.error = false;
   $scope.incomplete = true;
+
+  /*
+  console.log("host: "+ $location.host());
+  console.log("port: " + $location.port());
+  console.log("url: " + $location.absUrl());
+  */
 
   $scope.$watch('passw1',function() {$scope.test();});
   $scope.$watch('passw2',function() {$scope.test();});
@@ -33,6 +39,11 @@ app.controller("newUserController", ["$scope", "userMngService", function($scope
   $scope.addUser = function($event, usrObj) {
     $event.preventDefault();
     userMngService.createUser(usrObj);
-    location.href = "#/!";
+    $location.path("/");
+  }
+
+  $scope.cancel = function($event) {
+    $event.preventDefault();
+    $location.path("/");
   }
 }]);

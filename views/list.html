@@ -38,14 +38,10 @@
       <tr ng-repeat="user in users | orderBy:propertyName:reverse | filter:searchKey">
         <td>{{user.id}}</td>
         <td>
-          <button class="w3-btn w3-ripple">
-            <a href="#/!edit" ng-click="go($event, user.id)">&#9998; Edit</a>
-        </button>
+          <button class="w3-btn w3-ripple" ng-click="editUser($event, user.id)">&#9998; Edit</button>
         </td>
         <td>
-          <button class="w3-btn w3-ripple" ng-click="deleteUser(user.id)">
-            <a href="#/!" ng-click="deleteUser($event, user.id)">&#10006; Delete</a>
-          </button>
+          <button class="w3-btn w3-ripple" ng-click="deleteUser($event, user.id)">&#10006; Delete</button>
         </td>
         <td>{{ user.fName }}</td>
         <td>{{ user.lName }}</td>
@@ -74,5 +70,5 @@
         </li>
     </ul-->
     <br>
-    <button class="w3-btn w3-green w3-ripple"><a href="#!new">&#9998; Create New User</a></button>
+    <button class="w3-btn w3-green w3-ripple" ng-click="createUser($event)">&#9998; Create New User</button>
 </div>

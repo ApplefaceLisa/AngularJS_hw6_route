@@ -23,11 +23,7 @@
         <input class="w3-input w3-border" type="password" ng-model="passw2" placeholder="Repeat Password" required>
         <span ng-show="error" class="item_required">password not match</span>
       <br>
-      <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete">
-        <a href="#/!" ng-click="addUser($event, user)">&#10004; Save Changes</a>
-      </button>
-      <button class="w3-btn w3-green w3-ripple">
-        <a href="#/!">&#10064; Cancel</a>
-      </button>
+      <button class="w3-btn w3-green w3-ripple" ng-disabled="error || incomplete"  ng-click="addUser($event, user)">&#10004; Save Changes</button>
+      <button class="w3-btn w3-green w3-ripple" ng-click="cancel($event)">&#10064; Cancel</button>
     </form>
 </div>
